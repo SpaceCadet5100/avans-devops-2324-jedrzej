@@ -1,6 +1,30 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/B9F4RYVR)
 
 
-[![Week1](https://github.com/avans-devops/avans-devops-2324-jedrzej/actions/workflows/week1.js.yml/badge.svg)](https://github.com/avans-devops/avans-devops-2324-jedrzej/actions/workflows/week1.js.yml)
+### Photos Service, alias express-photos
 
-# TESTING
+#### GET '/photos'
+
+Deze route haalt alle foto's op uit de database en retourneert deze als een JSON-array.
+
+#### POST '/photos'
+
+Deze route maakt een nieuwe foto aan in de database. Het vereist een JSON-payload met de volgende velden: 'image' (de afbeelding zelf) en 'userId' (de gebruikers-ID van de eigenaar van de foto). Als een van deze velden ontbreekt, retourneert de route een 400-fout. Nadat de foto is toegevoegd aan de database, wordt er ook een bericht verzonden naar een message queue met de gebruikers-ID van de eigenaar van de foto.
+
+
+### Users Service, alias express
+
+#### GET '/users'
+
+Deze route haalt alle gebruikers op uit de database en retourneert ze als een JSON-array.
+
+#### POST '/users'
+
+Deze route voegt een nieuwe gebruiker toe aan de database. Het verwacht een JSON-payload met de gegevens van de nieuwe gebruiker en voegt deze toe aan de 'users'-collectie in de database.
+
+#### GET '/users-with-photos'
+
+Deze route haalt alle gebruikers op die foto's hebben uit de database en retourneert ze als een JSON-array.
+
+Unit tests, lint, test coverage: 
+[![Week1](https://github.com/SpaceCadet5100/avans-devops-2324-jedrzej/actions/workflows/week1.js.yml/badge.svg?branch=main)](https://github.com/SpaceCadet5100/avans-devops-2324-jedrzej/actions/workflows/week1.js.yml)
+[![photos](https://github.com/SpaceCadet5100/avans-devops-2324-jedrzej/actions/workflows/photos.js.yml/badge.svg?branch=main)](https://github.com/SpaceCadet5100/avans-devops-2324-jedrzej/actions/workflows/photos.js.yml) 
