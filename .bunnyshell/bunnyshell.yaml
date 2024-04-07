@@ -19,7 +19,7 @@ components:
                 MQ: 'amqp://rb'
                 MQ_QUE: q
             ports:
-                - '3000:3000'
+                - '3005:3005'
         hosts:
             -
                 hostname: 'express-{{ env.base_domain }}'
