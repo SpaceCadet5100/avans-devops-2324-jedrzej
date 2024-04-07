@@ -16,8 +16,4 @@ scrape_configs:
     static_configs:
       - targets: ["mongodb-exporter:4004"]
 
-  - job_name: "mongodb-exporter-express-photos"
-    static_configs:
-      - targets: ["mongodb-exporter-express-photos:4005"]
-
 
