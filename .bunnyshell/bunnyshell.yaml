@@ -37,7 +37,7 @@ components:
                 dockerfile: Dockerfile
             environment:
                 DB_NAME: mydb
-                MONGO_URL: 'mongodb://mongodb-photos:27018'
+                MONGO_URL: 'mongodb://mongodb:27017'
                 MQ: 'amqp://rb'
                 MQ_QUE: q
             ports:
@@ -59,34 +59,6 @@ components:
                 name: mongodb-data
                 mount: /data/db1
                 subPath: ''
-    -
-        kind: Database
-        name: mongodb-photos
-        dockerCompose:
-            image: 'mongo:latest'
-            ports:
-                - '27018:27017'
-        volumes:
-            -
-                name: mongodb-data
-                mount: /data/db2
-                subPath: ''
-    -
-        kind: Service
-        name: rb
-        dockerCompose:
-            image: 'rabbitmq:latest'
-            ports:
-                - '5672:5672'
-                - '15672:15672'
-                - '15671:15671'
-                - '25672:25672'
-                - '4369:4369'
-        hosts:
-            -
-                hostname: 'rb-{{ env.base_domain }}'
-                path: /
-                servicePort: 5672
 volumes:
     -
         name: mongodb-data
