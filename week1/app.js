@@ -49,7 +49,6 @@ async function consumeMessages() {
     }
 }
 
-
 async function checkUserExists(userId) {
     try {
         const user = await db.collection('users').findOne({ _id: new ObjectId(userId) });
