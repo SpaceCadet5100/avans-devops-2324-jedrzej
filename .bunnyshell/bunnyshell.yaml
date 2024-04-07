@@ -1,7 +1,7 @@
 kind: Environment
-name: prod
+name: preview
 type: primary
-urlHandle: jwo2yv
+urlHandle: 4sf4ad
 components:
     -
         kind: Application
