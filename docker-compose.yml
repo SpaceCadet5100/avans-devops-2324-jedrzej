@@ -33,15 +33,7 @@ services:
       - "3000:3000"
     depends_on:
       - mongodb
-        
-  mongodb-photos:
-    image: mongo:latest
-    container_name: mongodb_api_photos
-    volumes:
-      - mongodb_data:/data/db2
-    ports:
-      - "27018:27017"
-
+      
   express-photos:
     build:
       context: ./photos
