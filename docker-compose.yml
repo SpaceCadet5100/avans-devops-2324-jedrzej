@@ -26,7 +26,7 @@ services:
     container_name: week1_express
     environment:
       MONGO_URL: "mongodb://mongodb:27017"
-      DB_NAME: "mydb"
+      DB_NAME: "usersDB"
       MQ: "amqp://rb"
       MQ_QUE: "q"
     ports:
@@ -48,14 +48,14 @@ services:
       dockerfile: Dockerfile
     container_name: photos_express
     environment:
-      MONGO_URL: "mongodb://mongodb-photos:27017"
-      DB_NAME: "mydb"
+      MONGO_URL: "mongodb://mongodb:27017"
+      DB_NAME: "photosDB"
       MQ: "amqp://rb"
       MQ_QUE: "q"
     ports:
       - "3002:3002"
     depends_on:
-      - mongodb-photos
+      - mongodb
 
   prometheus:
     build:
@@ -75,13 +75,5 @@ services:
       - MONGODB_URI=mongodb://mongodb:27017/mydb
     ports:
       - "4004:9216"
-
-  mongodb-exporter-express-photos:
-    image: bitnami/mongodb-exporter:latest
-    environment:
-      - MONGODB_URI=mongodb://mongodb-photos:27017/mydb
-    ports:
-      - "4005:9216"
-
 volumes:
   mongodb_data:
