@@ -14,7 +14,7 @@ components:
                 context: ./week1
                 dockerfile: Dockerfile
             environment:
-                DB_NAME: mydb
+                DB_NAME: usersDB
                 MONGO_URL: 'mongodb://mongodb:27017'
                 MQ: 'amqp://rb'
                 MQ_QUE: q
@@ -36,7 +36,7 @@ components:
                 context: ./photos
                 dockerfile: Dockerfile
             environment:
-                DB_NAME: mydb
+                DB_NAME: photosDB
                 MONGO_URL: 'mongodb://mongodb:27017'
                 MQ: 'amqp://rb'
                 MQ_QUE: q
