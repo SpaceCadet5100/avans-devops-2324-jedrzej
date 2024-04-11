@@ -25,6 +25,7 @@ const metricsMiddleware = promBundle({
 
 const QUEUE_NAME = process.env.MQ_QUE;
 
+
 async function consumeMessages() {
     try {
         const connection = await amqp.connect(process.env.MQ);
@@ -48,7 +49,6 @@ async function consumeMessages() {
         console.error('Error:', error); 
     }
 }
-
 
 async function checkUserExists(userId) {
     try {
